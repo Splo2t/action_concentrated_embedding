@@ -10,8 +10,8 @@ import pickle
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_path',      type=str    ,   default="../")
-parser.add_argument('--output_path',    type=str    ,   default="../processed_data")
+parser.add_argument('--data_path',      type=str    ,   default="./")
+parser.add_argument('--output_path',    type=str    ,   default="./slt_stft_data")
 parser.add_argument('--fs'  ,           type=int    ,   default=30)
 parser.add_argument('--nfft',           type=int    ,   default=40)
 parser.add_argument('--overlap',        type=int    ,   default=30)
