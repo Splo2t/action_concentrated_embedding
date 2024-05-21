@@ -10,8 +10,8 @@ import pickle
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_path',      type=str    ,   default="../")
-parser.add_argument('--output_path',    type=str    ,   default="../processed_data")
+parser.add_argument('--data_path',      type=str    ,   default="./")
+parser.add_argument('--output_path',    type=str    ,   default="./slt_ko_data")
 
 args = parser.parse_args()
 
