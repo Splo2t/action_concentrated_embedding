@@ -172,5 +172,5 @@ for i in range(32):
         r = list(filter(None, list(res)))
         tot += sum(r)
 end = time.time()
-print(f"latency: {(end - start)/10}")
+print(f"latency: {(end - start)}")
 print(f"total data cnt: {tot}")
