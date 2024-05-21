@@ -220,16 +220,6 @@ class Chunk:
         feature['right'] = self.feature[:, right_range[0]*interval:right_range[1]*interval ]
         d['feature'] = feature
         return d
-        
-# import time
-# start = time.time()
-
-# print(body_range)
-# print(face_range)
-# print(left_range)
-# print(right_range)
-
-
 
 import time
 
@@ -258,14 +248,7 @@ def getDict(id):
 
 start = time.time()
 id_len = len(id_list)
-# with futures.ProcessPoolExecutor() as exec:
-#     res = exec.map(getDict, id_list)
-#     r = np.array(list(filter(None, list(res))))
-#     print(f"{n}_{overlap}")
-#     print(f"AVERAGE Token Length = {np.average(r)}")
-#     print(f"STANDARD VARIANCE Token Length = {np.std(r)}")
-#     print(f"MAXIMUM Token Length = {max(r)}")
-#     print(f"Number of Files: {len(r)}")
+
 tot = 0
 for i in range(32):
     print(f"{i+1} / 32")
@@ -275,7 +258,7 @@ for i in range(32):
         tot += sum(r)
 
 end = time.time()
-print(f"latency: {(end - start)/3}")
+print(f"latency: {(end - start)}")
 
 # end = time.time()
 # with futures.ThreadPoolExecutor()
