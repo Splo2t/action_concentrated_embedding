@@ -7,7 +7,21 @@ from scipy import signal
 
 import pickle
 
-projectPath = "../"
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--data_path',      type=str    ,   default="../")
+parser.add_argument('--output_path',    type=str    ,   default="../processed_data")
+
+args = parser.parse_args()
+
+projectPath = args.data_path
+
+output_path = args.output_path
+
+if not os.path.isdir(output_path):
+    os.mkdir(path=output_path)
+
 # video_path = projectPath + 'rawdata/원천데이터/1.mp4_TS001/1.mp4/1.Sangle/1.자연재난/COLDWAVE/1_1'
 data_root_path = projectPath + '02_XML_TL/'
 label_root_path = projectPath + '03_JSON_TrL/'
@@ -143,18 +157,15 @@ def getDict(id):
             return
 
 import time
-output_folder = f"our_processed_data_55_55"
 
 print(f"ID SIZE: {len(id_list)}")
-output_path = os.path.join('../ssd/', output_folder)
-if not os.path.isdir(output_path):
-    os.mkdir(path=output_path)
 
-start = time.time()
 id_len = len(id_list)
 
 tot = 0
-for i in range(3):
+
+start = time.time()
+for i in range(32):
     print(i) 
     with futures.ProcessPoolExecutor() as exec:
         res = exec.map(getDict, id_list[i*id_len//32:(i+1)*id_len//32])
